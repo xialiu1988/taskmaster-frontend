@@ -1,4 +1,7 @@
 #Taskmanager Front-end
+
+Depolioyed link: https://master.d23irg4g92t4ud.amplifyapp.com/
+
 Build a font end website for taskmanger. List all the tasks available from api.
 
 # Technology
