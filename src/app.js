@@ -27,6 +27,11 @@ return(
   <li key={t.id}>
    <details>
      <summary>
+       {t.imageUrl?
+      (<img src={t.imageUrl} height="200px" width="200px" alt={t.id}/>)
+      :
+      (<p>This task doesn't have image</p>)
+       }
        <p>{t.title}</p>
        <p>{t.description}</p>
        <p>{t.status}</p>
