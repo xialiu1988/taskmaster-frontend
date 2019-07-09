@@ -2,14 +2,17 @@ import React, {useState, useEffect} from 'react';
 import './app.scss';
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const API = 'http://x88l.us-east-2.elasticbeanstalk.com/tasks';
-
 function Task(){
+
+
    const [task,setTask]=useState([]);
 
    const _getTask = () => {
      fetch(proxyurl+API)
     .then(data=>data.json())
-    .then(tt=>setTask(tt))
+    .then(tt=>{
+      setTask(tt)
+    })
     .catch(console.error);
 
    }
@@ -20,6 +23,7 @@ useEffect(_getTask,[]);
 return(
 <ul>
   {task.map((t)=>
+  
   <li key={t.id}>
    <details>
      <summary>
@@ -28,16 +32,22 @@ return(
        <p>{t.status}</p>
      </summary>
      <Assignee assignee={t.assignee} />
+     <form action={`${API}/${t.id}/images`} method="post" encType="multipart/form-data">
+        <label>
+          <span>Upload Image</span>
+          <input name="file" type="file" />
+        </label>
+        <button>Save</button>
+      </form>
    </details>
 
   </li>
     )}
+  
 </ul>
 
 )
-
-}
-
+  }
 
 function Assignee(props){
   let assignee= props.assignee;
