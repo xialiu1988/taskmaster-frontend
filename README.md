@@ -18,11 +18,20 @@ Status of the task,
 
 Whom the task assigned to(if nobody will show "unassigned" if has assignee will show the name)
 
+uploading image file to the site , and will display both original and resized images
+
 # Technology
 
 React js 
 
 Aws amplify for deployed version 
+
+S3 for storing the pics(files)
+
+Lambda create function for resizing the pic image and whenever user create file online it will trigger the lambda function
+
+to resize the image and save resized image to the resized bucket. 
+
 
 # Display
 

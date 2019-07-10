@@ -3,8 +3,6 @@ import './app.scss';
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const API = 'http://x88l.us-east-2.elasticbeanstalk.com/tasks';
 function Task(){
-
-
    const [task,setTask]=useState([]);
 
    const _getTask = () => {
@@ -32,6 +30,14 @@ return(
       :
       (<p>This task doesn't have image</p>)
        }
+
+{t.thumbnailUrl?
+  (<img id="thumbnail" src={t.thumbnailUrl} alt={t.id}/>)
+  :
+  (<p>This task doesn't have resized image</p>)
+   }
+
+
        <p>{t.title}</p>
        <p>{t.description}</p>
        <p>{t.status}</p>
